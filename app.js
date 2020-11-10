@@ -22,6 +22,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+const mongoose = require('mongoose');
+const config = require('./config');
+
+const uri = config.mongoUrl;
+const connect = mongoose.connect(uri, {useNewUrlParser: true});
+
+connect.then((db) => {
+  console.log('Connected correctly to Server');
+}, (err) => console.log(err));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
