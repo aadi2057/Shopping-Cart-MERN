@@ -2,6 +2,7 @@
 
 This is a simple shopping list application that simply lets users to authenticate and authorize to perform certain operations like adding items to the list and removing it from the list.
 
+## Running the application
 To run this application you must first install the dependencies for client by the command:
 `npm run client-install`
 
