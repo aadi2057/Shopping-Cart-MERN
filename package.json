@@ -8,7 +8,7 @@
     "server": "nodemon ./bin/www",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn --prefix client && yarn run build --prefix client"
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn add --prefix client && yarn run build --prefix client"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
