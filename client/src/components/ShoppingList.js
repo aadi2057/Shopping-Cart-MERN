@@ -31,13 +31,13 @@ class ShoppingList extends Component {
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map((item) => (
-              <CSSTransition key={item.id} timeout={500} classNames="fade">
+              <CSSTransition key={item._id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button
                     className="remove-btn mr-2"
                     color="danger"
                     size="small"
-                    onClick={() => this.handleDelete(item.id)}
+                    onClick={() => this.handleDelete(item._id)}
                   >
                     &times;
                   </Button>

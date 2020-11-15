@@ -12,8 +12,6 @@ import {
   Col,
 } from "reactstrap";
 
-import { v4 as uuid } from "uuid";
-
 const ItemModal = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
@@ -25,7 +23,6 @@ const ItemModal = (props) => {
   const onSubmit = (evt) => {
     evt.preventDefault();
     const newItem = {
-      id: uuid(),
       name: name,
     };
     props.addItem(newItem);

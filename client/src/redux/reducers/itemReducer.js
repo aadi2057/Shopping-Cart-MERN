@@ -1,14 +1,8 @@
-import { v4 as uuid } from "uuid";
 import * as ActionTypes from "../actions/ActionTypes";
 
 const initialState = {
-  items: [
-    { id: uuid(), name: "Eggs" },
-    { id: uuid(), name: "Fruits" },
-    { id: uuid(), name: "Milk" },
-    { id: uuid(), name: "Steak" },
-    { id: uuid(), name: "Water" },
-  ],
+  items: [],
+  loading: false,
 };
 
 export default function (state = initialState, action) {
@@ -16,16 +10,21 @@ export default function (state = initialState, action) {
     case ActionTypes.GET_ITEMS:
       return {
         ...state,
+        items: action.payload,
+        loading: false,
       };
 
     case ActionTypes.DELETE_ITEM:
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
+        items: state.items.filter((item) => item._id !== action.payload),
       };
 
     case ActionTypes.ADD_ITEM:
       return { ...state, items: [action.payload, ...state.items] };
+
+    case ActionTypes.ITEMS_LOADING:
+      return { ...state, loading: true };
 
     default:
       return state;
