@@ -30,7 +30,11 @@ const mongoose = require("mongoose");
 const config = require("./config");
 
 const uri = config.mongoUrl;
-const connect = mongoose.connect(uri, { useNewUrlParser: true });
+const connect = mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 connect.then(
   (db) => {
